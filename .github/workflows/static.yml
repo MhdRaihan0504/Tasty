@@ -54,7 +54,11 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      # Step 6: Build and push Docker image
+      # Step 6: Modify port in static.yml
+      - name: Modify static.yml port to 8080
+        run: sed -i 's/PORT/8080/g' ./static.yml
+
+      # Step 7: Build and push Docker image
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
