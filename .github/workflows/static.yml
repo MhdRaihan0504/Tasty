@@ -56,7 +56,7 @@ jobs:
 
       # Step 6: Modify port in static.yml
       - name: Modify static.yml port to 8080
-        run: sed -i 's/PORT/8080/g' ./static.yml
+        run: sed -i 's/PORT/8080/g' .github/workflows/static.yml
 
       # Step 7: Build and push Docker image
       - name: Build and push Docker image
